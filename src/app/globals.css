@@ -1,0 +1,421 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:ital,opsz,wght@0,14..32,100..900&family=JetBrains+Mono:wght@400&display=swap');
+
+  :root {
+    /* ── 60% Dominant surfaces ─────────────────── */
+    --color-bg:        #000000;
+    --color-surface-1: #0A0A0A;
+    --color-surface-2: #121212;
+    --color-surface-3: #1A1A1A;
+
+    /* ── 30% Secondary / structure ─────────────── */
+    --color-border:    #2A2A3E;
+    --color-border-2:  #363650;
+    --color-muted:     #5E5E78;
+    --color-subtle:    #0D0D18;
+
+    /* ── 10% Accent ─────────────────────────────── */
+    --color-accent:    #0055FF; /* Premium electric blue */
+    --color-accent-dim:  rgba(0,85,255,0.12);
+    --color-accent-glow: rgba(0,85,255,0.4);
+
+    /* ── Text ────────────────────────────────────── */
+    --color-text:   #EEEEF8;
+    --color-text-2: #9898B4;
+    --color-text-3: #6A6A82;
+
+    /* ── Typography ──────────────────────────────── */
+    --font-display: 'Syne', system-ui, sans-serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+    --font-mono:    Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  /* ── Custom Scrollbar ───────────────────────── */
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    height: 0px;
+  }
+  
+  * {
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* ── Type scale — fluid clamp ─────────────────── */
+  :root {
+    --text-xs:   clamp(0.70rem,  0.9vw,  0.85rem);
+    --text-sm:   clamp(0.85rem,  1.1vw,  1.00rem);
+    --text-base: clamp(1.00rem,  1.4vw,  1.10rem);
+    --text-lg:   clamp(1.10rem,  1.8vw,  1.30rem);
+    --text-xl:   clamp(1.40rem,  2.5vw,  1.90rem);
+    --text-2xl:  clamp(1.90rem,  4.0vw,  3.20rem);
+    --text-3xl:  clamp(2.80rem,  7.0vw,  5.50rem);
+    --text-hero: clamp(4.50rem, 11.0vw, 10.00rem);
+
+    /* ── Spacing — 8pt grid ──────────────────────── */
+    --space-xs:  clamp(0.50rem, 1.0vw, 0.75rem);
+    --space-sm:  clamp(0.75rem, 1.4vw, 1.00rem);
+    --space-md:  clamp(1.00rem, 2.0vw, 1.50rem);
+    --space-lg:  clamp(1.50rem, 3.0vw, 2.50rem);
+    --space-xl:  clamp(2.50rem, 5.0vw, 4.00rem);
+    --space-2xl: clamp(4.00rem, 7.0vw, 6.00rem);
+    --space-3xl: clamp(6.00rem, 10vw,  9.00rem);
+
+    /* ── Radii ───────────────────────────────────── */
+    --radius-sm:   6px;
+    --radius-md:   12px;
+    --radius-lg:   20px;
+    --radius-xl:   28px;
+    --radius-2xl:  40px;
+    --radius-pill: 100vw;
+
+    /* ── Easing references ───────────────────────── */
+    --ease-out-expo:     cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  body {
+    @apply bg-bg text-text font-body font-light antialiased leading-[1.65];
+    background-color: var(--color-bg);
+  }
+
+  h1, h2, h3, h4, h5, h6, .display-text {
+    @apply font-display font-bold;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+
+  .mono-text {
+    @apply font-mono font-normal uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Premium caption — Inter Variable, ultra-light, wide tracking */
+  .caption-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-variation-settings: 'wght' 250, 'opsz' 14;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* ── Light mode overrides ────────────────────── */
+  .light {
+    --color-bg:          #FFFFFF;
+    --color-surface-1:   #F7F7FC;
+    --color-surface-2:   #F0F0F8;
+    --color-surface-3:   #E8E8F2;
+    --color-border:      #D0D0E8;
+    --color-border-2:    #C0C0DC;
+    --color-muted:       #8888A4;
+    --color-subtle:      #F4F4FC;
+    --color-accent:      #0055FF;
+    --color-accent-dim:  rgba(0,85,255,0.10);
+    --color-accent-glow: rgba(0,85,255,0.20);
+    --color-text:        #0A0A1A;
+    --color-text-2:      #3C3C60;
+    --color-text-3:      #6A6A8C;
+  }
+
+  /* Lenis smooth scrolling reset */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  .lenis.lenis-smooth iframe { pointer-events: none; }
+
+  * { cursor: none; }
+}
+
+@layer utilities {
+  .clip-path-reveal   { clip-path: inset(0 100% 0 0); }
+  .clip-path-reveal-y { clip-path: inset(100% 0 0 0); }
+
+  /* ── Glassmorphism - Optimized for GPU ───────────────── */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    will-change: transform, backdrop-filter;
+  }
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px) saturate(200%);
+    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    will-change: transform, backdrop-filter;
+  }
+
+  /* ── Light mode glass overrides ──────────────────────── */
+  .light .glass {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  .light .glass-strong {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 1.0);
+  }
+
+  /* ── Light mode nav / register button ───────────────── */
+  .light button.btn-register {
+    background: #0a0a1a !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  }
+  .light button.btn-register:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25) !important;
+  }
+  .light .btn-register .register-hover-overlay {
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* ── Navbar solid background in light mode ───────────── */
+  .light nav.pointer-events-auto {
+    background: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10) !important;
+  }
+
+  /* ── Hero dark gradient overlay in light mode ────────── */
+  .light .hero-dark-gradient {
+    background: linear-gradient(to bottom, transparent, transparent, rgba(240,240,250,0.6)) !important;
+  }
+
+  /* ── from-black/5 in light mode ──────────────────────── */
+  .light .from-black\/5 {
+    --tw-gradient-from: transparent var(--tw-gradient-from-position) !important;
+  }
+
+  /* ── Light mode scroll progress track ───────────────── */
+  .light .scroll-progress-track {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     LIGHT MODE — comprehensive Tailwind class overrides
+     Override all hardcoded dark-mode colors site-wide
+     ══════════════════════════════════════════════════════ */
+
+  /* ── Text: white → dark ──────────────────────────────── */
+  .light .text-white     { color: var(--color-text) !important; }
+  .light .text-white\/80 { color: color-mix(in srgb, var(--color-text) 80%, transparent) !important; }
+  .light .text-white\/60 { color: color-mix(in srgb, var(--color-text) 60%, transparent) !important; }
+  .light .text-white\/50 { color: color-mix(in srgb, var(--color-text) 50%, transparent) !important; }
+  .light .text-white\/40 { color: color-mix(in srgb, var(--color-text) 40%, transparent) !important; }
+  .light .text-white\/30 { color: color-mix(in srgb, var(--color-text) 30%, transparent) !important; }
+  .light .text-white\/20 { color: color-mix(in srgb, var(--color-text) 20%, transparent) !important; }
+  .light .text-white\/10 { color: color-mix(in srgb, var(--color-text) 10%, transparent) !important; }
+  .light .text-white\/5  { color: color-mix(in srgb, var(--color-text) 5%,  transparent) !important; }
+  .light .text-gray-200  { color: var(--color-text-2) !important; }
+  .light .text-gray-300  { color: var(--color-text-2) !important; }
+  .light .text-gray-400  { color: var(--color-text-3) !important; }
+  .light .text-gray-500  { color: var(--color-muted)  !important; }
+  .light .text-black     { color: var(--color-text)   !important; }
+  .light .text-\[\#080810\] { color: var(--color-text) !important; }
+  .light .text-\[\#EEEEF8\] { color: var(--color-text) !important; }
+
+  /* ── Backgrounds: transparent white → transparent dark ── */
+  .light .bg-white\/5          { background-color: rgba(0,0,0,0.04)  !important; }
+  .light .bg-white\/10         { background-color: rgba(0,0,0,0.06)  !important; }
+  .light .bg-white\/\[0\.01\]  { background-color: rgba(0,0,0,0.015) !important; }
+  .light .bg-white\/\[0\.02\]  { background-color: rgba(0,0,0,0.025) !important; }
+  .light .bg-white\/\[0\.03\]  { background-color: rgba(0,0,0,0.03)  !important; }
+
+  /* ── Backgrounds: hardcoded dark → surface ───────────── */
+  .light .bg-black             { background-color: var(--color-bg)        !important; }
+  .light .bg-black\/90         { background-color: color-mix(in srgb, var(--color-bg) 90%, transparent) !important; }
+  .light .bg-\[\#080808\]      { background-color: var(--color-surface-1) !important; }
+  .light .bg-\[\#080810\]      { background-color: var(--color-surface-1) !important; }
+  .light .bg-\[\#06060E\]      { background-color: var(--color-surface-1) !important; }
+  .light .bg-\[\#0A0A0A\]      { background-color: var(--color-surface-2) !important; }
+  .light .bg-\[\#3B82F6\]      { background-color: var(--color-accent)    !important; }
+
+  /* ── Borders: white variants → subtle dark ───────────── */
+  .light .border-white\/5      { border-color: rgba(0,0,0,0.06)  !important; }
+  .light .border-white\/10     { border-color: rgba(0,0,0,0.10)  !important; }
+  .light .border-white\/20     { border-color: rgba(0,0,0,0.14)  !important; }
+  .light .border-white\/30     { border-color: rgba(0,0,0,0.18)  !important; }
+  .light .border-white\/40     { border-color: rgba(0,0,0,0.22)  !important; }
+  .light .border-white         { border-color: var(--color-text)  !important; }
+  .light .border-l-4.border-white { border-color: var(--color-text) !important; }
+
+  /* ── Gradients: white-based → text-based ─────────────── */
+  .light .from-white {
+    --tw-gradient-from: var(--color-text) var(--tw-gradient-from-position) !important;
+  }
+  .light .from-white\/10 {
+    --tw-gradient-from: rgba(0,0,0,0.06) var(--tw-gradient-from-position) !important;
+  }
+  .light .from-white\/5 {
+    --tw-gradient-from: rgba(0,0,0,0.03) var(--tw-gradient-from-position) !important;
+  }
+  .light .via-white\/80 {
+    --tw-gradient-via: color-mix(in srgb, var(--color-text) 80%, transparent) var(--tw-gradient-via-position) !important;
+  }
+  .light .to-white\/40 {
+    --tw-gradient-to: color-mix(in srgb, var(--color-text) 65%, transparent) var(--tw-gradient-to-position) !important;
+  }
+  /* Hero / marquee fades: black → bg */
+  .light .from-black {
+    --tw-gradient-from: var(--color-bg) var(--tw-gradient-from-position) !important;
+  }
+  .light .from-black\/5 {
+    --tw-gradient-from: rgba(0,0,0,0.02) var(--tw-gradient-from-position) !important;
+  }
+  .light .to-black\/90 {
+    --tw-gradient-to: var(--color-bg) var(--tw-gradient-to-position) !important;
+  }
+  .light .bg-\[\#000000\] {
+    background-color: var(--color-bg) !important;
+  }
+
+  /* ── Hero vignette dark overlay ──────────────────────── */
+  .light .hero-vignette {
+    background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 10%, rgba(240,240,250,0.35) 100%) !important;
+  }
+
+  /* ── Hero CTA buttons ────────────────────────────────── */
+  .light .hero-cta-primary {
+    background-color: var(--color-accent) !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(0,85,255,0.25) !important;
+  }
+  .light .hero-cta-primary:hover {
+    box-shadow: 0 0 28px rgba(0,85,255,0.45) !important;
+  }
+  .light .hero-cta-secondary {
+    border-color: rgba(0,0,0,0.15) !important;
+    background-color: rgba(0,0,0,0.04) !important;
+    color: var(--color-text) !important;
+  }
+  .light .hero-cta-secondary:hover {
+    border-color: rgba(0,0,0,0.3) !important;
+    background-color: rgba(0,0,0,0.07) !important;
+  }
+
+  /* ── Apple logo: remove invert in light mode ─────────── */
+  .light .apple-logo-img {
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.12)) !important;
+  }
+
+  /* ── Featherless logo SVG fill ───────────────────────── */
+  .light .featherless-logo-svg {
+    fill: var(--color-text) !important;
+  }
+
+  /* ── Sponsor deck button ─────────────────────────────── */
+  .light .sponsor-deck-btn {
+    background-color: var(--color-accent) !important;
+    color: white !important;
+  }
+  .light .sponsor-deck-btn:hover {
+    box-shadow: 0 0 40px rgba(0,85,255,0.3) !important;
+  }
+
+  /* ── Drop shadow white glows → accent/subtle ─────────── */
+  .light .drop-shadow-\[0_0_80px_rgba\(59\,130\,246\,0\.5\)\] {
+    filter: drop-shadow(0 0 60px rgba(0,85,255,0.3)) !important;
+  }
+  .light .drop-shadow-\[0_0_20px_rgba\(255\,255\,255\,0\.4\)\],
+  .light .drop-shadow-\[0_0_15px_rgba\(255\,255\,255\,0\.3\)\],
+  .light .drop-shadow-\[0_0_12px_rgba\(255\,255\,255\,0\.4\)\] {
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.15)) !important;
+  }
+
+  /* ── Shadow white glows → subtle shadows ─────────────── */
+  .light .shadow-\[0_0_15px_rgba\(255\,255\,255\,0\.3\)\],
+  .light .shadow-\[0_0_25px_rgba\(255\,255\,255\,0\.5\)\],
+  .light .shadow-\[0_0_20px_rgba\(255\,255\,255\,0\.1\)\] {
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.12) !important;
+  }
+
+  /* ── Footer watermark text ───────────────────────────── */
+  .light .footer-bg-text {
+    color: var(--color-text-3) !important;
+  }
+
+  /* ── Gradient text spans → solid dark in light mode ──── */
+  .light .about-gradient-span,
+  .light .timeline-gradient-span {
+    color: var(--color-text-2) !important;
+    opacity: 1 !important;
+  }
+
+  /* ── caption-text: remove uppercase in light mode ───── */
+  .light .caption-text {
+    text-transform: none !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  /* ── Flag images: full opacity in light mode ─────────── */
+  .light .flag-img {
+    opacity: 1 !important;
+  }
+
+  /* ── Timeline vertical line ──────────────────────────── */
+  .light .bg-gradient-to-b.from-white\/40 {
+    --tw-gradient-from: rgba(0,0,0,0.25) var(--tw-gradient-from-position) !important;
+  }
+  .light .from-white\/60 {
+    --tw-gradient-from: rgba(0,0,0,0.35) var(--tw-gradient-from-position) !important;
+  }
+  .light .from-white\/40 {
+    --tw-gradient-from: rgba(0,0,0,0.25) var(--tw-gradient-from-position) !important;
+  }
+}
+
+/* ── Keyframe animations ──────────────────────────── */
+@keyframes float-blob-1 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  25%       { transform: translate(40px, -50px) scale(1.06); }
+  50%       { transform: translate(-30px, -20px) scale(0.96); }
+  75%       { transform: translate(20px, 40px) scale(1.03); }
+}
+@keyframes float-blob-2 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  30%       { transform: translate(-50px, 30px) scale(1.07); }
+  60%       { transform: translate(40px, -40px) scale(0.95); }
+  80%       { transform: translate(-20px, 50px) scale(1.04); }
+}
+@keyframes float-blob-3 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  40%       { transform: translate(60px, 30px) scale(1.05); }
+  70%       { transform: translate(-30px, -50px) scale(0.97); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+@keyframes dot-ping {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.6); }
+}
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-150%) skewX(-15deg); }
+  100% { transform: translateX(350%)  skewX(-15deg); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes ticker-glow {
+  0%, 100% { text-shadow: 0 0 0px rgba(107,127,255,0); }
+  50%       { text-shadow: 0 0 24px rgba(107,127,255,0.5), 0 0 48px rgba(107,127,255,0.2); }
+}
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 0 rgba(107,127,255,0); }
+  50%       { box-shadow: 0 0 20px rgba(107,127,255,0.3); }
+}

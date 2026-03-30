@@ -1,0 +1,38 @@
+{
+  "name": "aurora-fina",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@phosphor-icons/react": "latest",
+    "clsx": "latest",
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.21",
+    "lucide-react": "^1.7.0",
+    "mathjs": "^14.9.1",
+    "motion": "^12.38.0",
+    "next": "^15.0.0",
+    "ogl": "^1.0.11",
+    "react": "^19.0.0-rc",
+    "react-dom": "^19.0.0-rc",
+    "tailwind-merge": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/three": "latest",
+    "autoprefixer": "^8",
+    "eslint": "^9",
+    "eslint-config-next": "15.0.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "latest"
+  }
+}
