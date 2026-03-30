@@ -150,7 +150,7 @@ export function Sponsors() {
             {[0, 1].map((copy) => (
               <div key={copy} className="marquee-content animate-marquee-s flex items-center shrink-0" aria-hidden={copy === 1}>
                 {sponsorsList1.map((name, i) => (
-                  <span key={i} className={`font-display font-bold text-6xl md:text-8xl mx-md tracking-tighter transition-all duration-300 hover:text-accent hover:scale-110 inline-block ${i % 2 === 0 ? "text-text" : "text-transparent"}`} style={i % 2 !== 0 ? { WebkitTextStroke: "1px var(--color-border-2)" } : {}}>
+                  <span key={i} className={`font-display font-bold text-3xl sm:text-5xl md:text-8xl mx-md tracking-tighter transition-all duration-300 hover:text-accent hover:scale-110 inline-block ${i % 2 === 0 ? "text-text" : "text-transparent"}`} style={i % 2 !== 0 ? { WebkitTextStroke: "1px var(--color-border-2)" } : {}}>
                     {name}
                   </span>
                 ))}
@@ -161,7 +161,7 @@ export function Sponsors() {
             {[0, 1].map((copy) => (
               <div key={copy} className="marquee-content animate-marquee-reverse-s flex items-center shrink-0" aria-hidden={copy === 1}>
                 {sponsorsList2.map((name, i) => (
-                  <span key={i} className={`font-display font-bold text-6xl md:text-8xl mx-md tracking-tighter transition-all duration-300 hover:text-accent hover:scale-110 inline-block ${i % 2 !== 0 ? "text-text" : "text-transparent"}`} style={i % 2 === 0 ? { WebkitTextStroke: "1px var(--color-border-2)" } : {}}>
+                  <span key={i} className={`font-display font-bold text-3xl sm:text-5xl md:text-8xl mx-md tracking-tighter transition-all duration-300 hover:text-accent hover:scale-110 inline-block ${i % 2 !== 0 ? "text-text" : "text-transparent"}`} style={i % 2 === 0 ? { WebkitTextStroke: "1px var(--color-border-2)" } : {}}>
                     {name}
                   </span>
                 ))}

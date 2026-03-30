@@ -148,6 +148,26 @@ const MenuItem: React.FC<MenuItemProps> = ({
       .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' }, 0);
   };
 
+  const handleTouchStart = () => {
+    if (!marqueeRef.current || !marqueeInnerRef.current) return;
+    gsap
+      .timeline({ defaults: animationDefaults })
+      .set(marqueeRef.current, { y: '101%' }, 0)
+      .set(marqueeInnerRef.current, { y: '-101%' }, 0)
+      .to([marqueeRef.current, marqueeInnerRef.current], { y: '0%' }, 0);
+  };
+
+  const handleTouchEnd = () => {
+    if (!marqueeRef.current || !marqueeInnerRef.current) return;
+    setTimeout(() => {
+      if (!marqueeRef.current || !marqueeInnerRef.current) return;
+      gsap
+        .timeline({ defaults: animationDefaults })
+        .to(marqueeRef.current, { y: '101%' }, 0)
+        .to(marqueeInnerRef.current, { y: '-101%' }, 0);
+    }, 350);
+  };
+
   return (
     <div
       className="flex-1 relative overflow-hidden text-center"
@@ -159,6 +179,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
         href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         style={{ color: textColor }}
       >
         {text}

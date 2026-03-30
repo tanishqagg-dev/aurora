@@ -127,7 +127,7 @@ export function Timeline() {
             Each round eliminates teams. Only the most resilient and innovative builders
             will reach the global live stage.
           </p>
-          <div className="flex items-center gap-lg mt-xl py-lg border-t border-white/10">
+          <div className="flex flex-wrap items-center gap-md sm:gap-lg mt-xl py-lg border-t border-white/10">
             <div className="flex flex-col">
               <span className="text-white font-black text-2xl tracking-tighter">20,000+</span>
               <span className="font-body text-xs text-white/40 font-medium mt-1">Initial ideas</span>
@@ -167,7 +167,7 @@ export function Timeline() {
             <div className="phase-row grid grid-cols-1 lg:grid-cols-12 gap-0 relative">
 
               {/* ──────────── LEFT COLUMN ──────────── */}
-              <div className="phase-left lg:col-span-4 flex flex-col gap-xl pr-2xl border-r border-white/5">
+              <div className="phase-left lg:col-span-4 flex flex-col gap-xl lg:pr-2xl lg:border-r border-white/5 pb-xl lg:pb-0">
 
                 {/* Phase number watermark */}
                 <div className="relative">
@@ -203,7 +203,7 @@ export function Timeline() {
                   </div>
 
                   {/* Name */}
-                  <h3 className="font-display font-black text-5xl xl:text-6xl text-white tracking-tighter leading-[0.88] mb-xl relative z-10">
+                  <h3 className="font-display font-black text-3xl sm:text-5xl xl:text-6xl text-white tracking-tighter leading-[0.88] mb-xl relative z-10">
                     {stage.name}
                   </h3>
                 </div>
@@ -231,7 +231,7 @@ export function Timeline() {
               </div>
 
               {/* ──────────── RIGHT COLUMN ──────────── */}
-              <div className="lg:col-span-8 pl-2xl pt-0 flex flex-col gap-md">
+              <div className="lg:col-span-8 lg:pl-2xl pt-xl lg:pt-0 flex flex-col gap-md">
                 <div className="font-body text-sm font-medium text-white/35 mb-md uppercase tracking-widest">
                   What to Submit
                 </div>
@@ -244,14 +244,14 @@ export function Timeline() {
                   >
                     <div className="flex items-stretch min-h-[72px]">
                       {/* Number strip */}
-                      <div className="flex items-center justify-center w-20 xl:w-24 shrink-0 border-r border-white/6 group-hover:border-white/15 transition-colors duration-500">
+                      <div className="flex items-center justify-center w-14 sm:w-20 xl:w-24 shrink-0 border-r border-white/6 group-hover:border-white/15 transition-colors duration-500">
                         <span className="font-display font-black text-3xl xl:text-4xl text-white/[0.06] group-hover:text-white/12 transition-colors tabular-nums leading-none select-none">
                           {String(idx + 1).padStart(2, "0")}
                         </span>
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 flex items-center px-8 xl:px-10 py-7 gap-6">
+                      <div className="flex-1 flex items-center px-4 sm:px-8 xl:px-10 py-5 sm:py-7 gap-4 sm:gap-6">
                         <h4 className="font-display font-black text-lg xl:text-xl text-white tracking-tight leading-tight flex-1">
                           {item}
                         </h4>
@@ -267,9 +267,9 @@ export function Timeline() {
                 ))}
 
                 {/* Virtual Portal Access */}
-                <div className="portal-card relative mt-sm p-8 xl:p-10 rounded-3xl bg-gradient-to-br from-white/8 via-transparent to-transparent border border-white/10 flex items-center justify-between group cursor-help hover:border-white/30 transition-all duration-500 overflow-hidden">
+                <div className="portal-card relative mt-sm p-5 sm:p-8 xl:p-10 rounded-3xl bg-gradient-to-br from-white/8 via-transparent to-transparent border border-white/10 flex items-center justify-between group cursor-help hover:border-white/30 transition-all duration-500 overflow-hidden">
                   <div className="absolute inset-[1px] rounded-[calc(1.5rem-1px)] bg-bg/90 -z-0" />
-                  <div className="relative z-10 flex items-center gap-6">
+                  <div className="relative z-10 flex items-center gap-3 sm:gap-6">
                     <div className="relative p-3 rounded-xl bg-white/5 border border-white/10">
                       <MapPin className="w-6 h-6 text-white/70 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
                       <div className="absolute inset-0 bg-white blur-2xl opacity-0 group-hover:opacity-10 rounded-xl transition-opacity" />

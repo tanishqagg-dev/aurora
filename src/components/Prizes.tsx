@@ -133,7 +133,7 @@ export function Prizes() {
               </div>
               <div className="flex flex-wrap gap-xs">
                 {prize.perks.map((perk, j) => (
-                  <span key={j} className="caption-text text-gray-400 border border-white/5 bg-white/[0.02] backdrop-blur-md rounded-pill px-sm py-[2px] text-[0.55rem] font-black tracking-widest uppercase">
+                  <span key={j} className="caption-text text-gray-400 border border-white/5 bg-white/[0.02] backdrop-blur-md rounded-pill px-sm py-[3px] text-[0.65rem] font-black tracking-widest uppercase">
                     {perk}
                   </span>
                 ))}

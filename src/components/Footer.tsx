@@ -115,7 +115,7 @@ export function Footer() {
         <div className="footer-fade flex gap-md mb-2xl">
           <button
             ref={btnRef}
-            className="px-2xl py-md rounded-pill bg-[#3B82F6] text-white font-display text-lg font-black italic uppercase tracking-wider transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_50px_rgba(59,130,246,0.3)] hover:scale-105"
+            className="px-xl sm:px-2xl py-md rounded-pill bg-[#3B82F6] text-white font-display text-base sm:text-lg font-black italic uppercase tracking-wider transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_50px_rgba(59,130,246,0.3)] hover:scale-105 w-full sm:w-auto"
             style={{ willChange: "transform" }}
           >
             REGISTER ON DEVPOST
@@ -123,11 +123,11 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="footer-fade w-[calc(100%-4rem)] border-t border-white/5 pt-md flex flex-col md:flex-row justify-between items-start z-10 mb-sm gap-lg md:gap-0">
+      <div className="footer-fade w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] border-t border-white/5 pt-md flex flex-col md:flex-row justify-between items-start z-10 mb-sm gap-lg md:gap-0">
         <div className="flex flex-col gap-md">
           <div className="font-display font-black text-xl text-white italic uppercase tracking-tight">AURORA 2026</div>
           <div className="caption-text text-white/40 font-black tracking-[0.2em] text-[10px] uppercase">BY PROJECTGRID × IIIT DELHI</div>
-          <div className="flex gap-lg flex-wrap">
+          <div className="flex gap-sm sm:gap-lg flex-wrap">
             <a href="mailto:taniaagg9910922265@gmail.com" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">taniaagg9910922265@gmail.com</a>
             <a href="#" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">DEVPOST</a>
             <a href="#" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">DISCORD</a>
@@ -139,7 +139,7 @@ export function Footer() {
         <div className="flex flex-col items-end gap-lg">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="footer-fade w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-colors duration-300 group shadow-lg"
+            className="footer-fade w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-colors duration-300 group shadow-lg"
             aria-label="Scroll to top"
           >
             <span className="text-sm group-hover:-translate-y-0.5 transition-transform duration-200">↑</span>

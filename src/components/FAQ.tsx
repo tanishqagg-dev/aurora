@@ -140,7 +140,7 @@ export function FAQ() {
                       </h3>
                       <div
                         ref={(el) => { iconRefs.current[key] = el; }}
-                        className="text-white/40 text-2xl font-black flex items-center justify-center w-8 h-8 shrink-0 select-none group-hover:text-white transition-colors"
+                        className="text-white/40 text-2xl font-black flex items-center justify-center w-11 h-11 shrink-0 select-none group-hover:text-white transition-colors"
                       >
                         +
                       </div>

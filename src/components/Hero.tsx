@@ -240,7 +240,7 @@ export function Hero() {
 
 
   const titleStyle: React.CSSProperties = {
-    fontSize: "clamp(7rem, 22vw, 26rem)",
+    fontSize: "clamp(3rem, 20vw, 26rem)",
     zIndex: 3,
     position: "relative",
   };
@@ -331,7 +331,7 @@ export function Hero() {
           ref={subtitleRef}
           className="flex flex-col items-center gap-sm mt-xl"
         >
-          <p className="font-body text-gray-300 text-2xl text-center max-w-[42ch] font-light leading-snug tracking-tight">
+          <p className="font-body text-gray-300 text-base sm:text-xl md:text-2xl text-center max-w-[42ch] font-light leading-snug tracking-tight">
             A global multi-stage hackathon. Concept, prototype, and pitch your way to glory.
           </p>
           <div className="flex items-center gap-3 mt-4">
