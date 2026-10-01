@@ -3,8 +3,15 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ThemeToggle } from "./ThemeToggle";
+import { DEVPOST } from "@/data/recap";
 
-const navLinks = ["About", "Stages", "Prizes", "Judges", "Sponsors"];
+const navLinks = [
+  ["Reach", "#countries"],
+  ["Theme", "#theme"],
+  ["Stages", "#stages"],
+  ["Winners", "#winners"],
+  ["Partners", "#partners"],
+];
 
 export function Nav() {
   const navRef = useRef<HTMLElement>(null);
@@ -104,10 +111,10 @@ export function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-lg">
-          {navLinks.map((link) => (
+          {navLinks.map(([link, href]) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={href}
               className="nav-link relative font-body text-sm font-medium text-text-2 hover:text-text transition-colors duration-200"
             >
               {link}
@@ -122,12 +129,12 @@ export function Nav() {
         {/* Right side */}
         <div className="flex items-center gap-xs sm:gap-sm">
           <ThemeToggle />
-          <button className="hidden sm:flex btn-register px-lg py-sm rounded-pill bg-white hover:scale-[1.03] text-black font-body text-sm font-semibold transition-all duration-300 relative overflow-hidden group whitespace-nowrap">
+          <a href={DEVPOST} target="_blank" rel="noreferrer" className="hidden sm:flex btn-register px-lg py-sm rounded-pill bg-white hover:scale-[1.03] text-black font-body text-sm font-semibold transition-all duration-300 relative overflow-hidden group whitespace-nowrap">
             <span className="relative z-10 flex items-center gap-1">
-              Register <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              Devpost <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </span>
             <div className="register-hover-overlay absolute inset-0 bg-black/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          </button>
+          </a>
 
           {/* Hamburger (mobile only) */}
           <button
@@ -152,10 +159,10 @@ export function Nav() {
         }}
       >
         <div className="flex flex-col p-sm">
-          {navLinks.map((link) => (
+          {navLinks.map(([link, href]) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={href}
               onClick={() => setMenuOpen(false)}
               className="font-body text-base font-medium text-text-2 hover:text-text py-sm px-md rounded-xl hover:bg-white/5 transition-colors duration-200"
             >
@@ -163,9 +170,9 @@ export function Nav() {
             </a>
           ))}
           <div className="border-t border-border mt-sm pt-sm">
-            <button className="w-full py-sm rounded-pill bg-white text-black font-body text-sm font-semibold">
-              Register on Devpost →
-            </button>
+            <a href={DEVPOST} target="_blank" rel="noreferrer" className="block text-center w-full py-sm rounded-pill bg-white text-black font-body text-sm font-semibold">
+              View projects on Devpost →
+            </a>
           </div>
         </div>
       </div>

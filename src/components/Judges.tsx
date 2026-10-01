@@ -12,9 +12,9 @@ const criteria = [
   { label: "Impact", weight: "15%", desc: "What is the potential real-world impact? How well does the solution align with the SDG theme?" },
 ];
 
-const judges = [
-  { name: "Moksh Sindhwani", role: "cofounder", org: "grid organization", initials: "MS" },
-  { name: "Apply to be a Judge", role: "Join the Panel", org: "Aurora 2026", initials: "▼", isApply: true },
+const judges: Array<{ name: string; role: string; org: string; initials: string; isApply?: boolean }> = [
+  { name: "Moksh Sindhwani", role: "Co-founder", org: "projectGRID", initials: "MS" },
+  { name: "Tanishq Aggarwal", role: "Co-founder", org: "projectGRID", initials: "TA" },
 ];
 
 export function Judges() {
@@ -65,19 +65,20 @@ export function Judges() {
 
   return (
     <section
+      id="judging"
       ref={containerRef}
       className="relative w-full py-3xl px-xl flex flex-col bg-bg overflow-hidden"
     >
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-2xl gap-md">
         <div>
-          <div className="caption-text text-muted mb-sm">06 · JURY & MENTORS</div>
+          <div className="caption-text text-muted mb-sm">03 · JUDGING</div>
           <h2 className="font-display font-bold text-[clamp(2.5rem,5vw,4rem)] text-white leading-none tracking-tight">
-            Who will judge you
+            How projects were judged
           </h2>
         </div>
         <p className="font-body text-gray-300 font-light text-base max-w-[40ch] md:text-right leading-relaxed">
-          Judging takes place live online. Our panel spans founders, VCs, researchers, and design directors.
+          Judging took place live and online. Every project was scored on five weighted criteria, with impact tied to the SDG brief.
         </p>
       </div>
 
@@ -111,9 +112,9 @@ export function Judges() {
         </div>
         <div className="flex flex-col gap-sm flex-1 relative z-10">
           {[
-            "Top 20 teams pitch live virtually on 18 May 2026",
-            "8-minute pitch followed by 7-minute Q&A from the full judge panel",
-            "Judges score independently; final scores are averaged across all criteria",
+            "Teams pitched their working prototypes live, online",
+            "Each pitch was followed by questions from the panel",
+            "Scores were weighted across the five criteria above",
           ].map((item, i) => (
             <div key={i} className="flex items-start gap-sm">
               <span className="text-white/40 mt-[3px] text-xs shrink-0">▸</span>
@@ -125,7 +126,7 @@ export function Judges() {
 
       {/* Judges grid */}
       <div>
-        <div className="caption-text text-white/40 mb-lg font-black tracking-[0.4em] text-[10px] uppercase">CONFIRMED PANEL</div>
+        <div className="caption-text text-white/40 mb-lg font-black tracking-[0.4em] text-[10px] uppercase">ORGANISED BY</div>
         <div
           className="judges-grid w-full grid gap-md"
           style={{ gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))" }}

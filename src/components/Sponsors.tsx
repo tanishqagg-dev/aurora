@@ -4,40 +4,30 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import { AppleLogo, Lightning } from "@phosphor-icons/react";
 
-const confirmed = [
+const confirmed: Array<{ name: string; label: string; logo: React.ReactNode; desc: string; perks: string[]; href?: string; linkText?: string }> = [
   {
-    name: "Apple",
-    logo: (
-      <div className="flex items-center gap-3">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
-          alt="Apple"
-          className="apple-logo-img h-10 w-auto filter invert brightness-200 drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
-        />
-        <span className="font-display font-medium text-2xl text-white tracking-tight">Apple</span>
-      </div>
-    ),
-    desc: "Providing the ultimate performance tools: top-of-the-line MacBooks for the overall winning team of Aurora 2026.",
-    perks: ["MacBooks for Overall Winners"],
-    url: "apple.com",
-    href: "https://www.apple.com"
+    name: "projectGRID",
+    label: "ORGANISER",
+    logo: <span className="font-display font-black text-[clamp(1.5rem,2.2vw,2.1rem)] leading-[1.05] text-white tracking-tight">projectGRID</span>,
+    desc: "A student-run initiative. projectGRID designed and ran Aurora end to end, and took the Top 20 into incubation.",
+    perks: ["Organiser", "Incubation"],
+    href: "https://projectgrid.org/programmes/aurora",
+    linkText: "VISIT PROJECTGRID",
   },
   {
-    name: "Featherless.AI",
-    logo: (
-      <div className="flex items-center gap-3">
-        <svg viewBox="0 0 24 24" fill="currentColor" className="featherless-logo-svg h-10 w-10 text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
-          <path d="M22.724 3.088C21.527 2.376 19.91 2 18.044 2c-2.854 0-6 .877-8.826 2.403l-.02-.007-.004.021c-.855.464-1.684.981-2.462 1.558C2.147 9.376.863 13.412 1.947 15.57.76 17.542.03 19.583 0 22c2.28-4.233 3.648-7.663 11.076-13.438-2.122.443-5.79 2.545-8.258 5.735-.233-1.866 1.28-4.879 4.65-7.379.428-.316.871-.612 1.324-.893-.354 1.071-.24.805-.975 2.307 1.086-1.001 1.8-1.62 2.873-3.335a18.995 18.995 0 014.276-1.465c-.238.767-.69 2.067-1.302 3.095 0 0 1.553-.324 2.837-.25-.701.753-1.333 1.569-1.973 2.403-.876 1.142-1.782 2.322-2.943 3.421-.14.133-.273.253-.408.377-1.784-.167-2.961.483-4.065 1.63.87-.395 2.04-.72 2.772-.524-1.35 1.073-3.477 2.487-5.224 2.37-.332.492-.353.507-.717 1.1 2.835.688 6.395-2.118 8.49-4.103 1.229-1.164 2.165-2.383 3.07-3.56 1.862-2.427 3.471-4.523 7.04-5.32L24 3.846l-1.276-.758z"></path>
-        </svg>
-        <span className="font-display font-medium text-2xl text-white tracking-tight">Featherless</span>
-      </div>
-    ),
-    desc: "Serverless LLM hosting for 30,000+ open models. Build and scale AI apps without managing infrastructure.",
-    perks: ["Free API Credits", "Technical Mentorship"],
-    url: "featherless.ai",
-    href: "https://featherless.ai"
+    name: "HP",
+    label: "PRIZE LAPTOPS",
+    logo: <span className="font-display font-black text-[clamp(1.5rem,2.2vw,2.1rem)] leading-[1.05] text-white tracking-tight">HP</span>,
+    desc: "HP provided the laptops awarded to Aurora's winners, ₹1 lakh in prizes.",
+    perks: ["Winner laptops"],
+  },
+  {
+    name: "Apple employees",
+    label: "INDIVIDUAL SUPPORT",
+    logo: <span className="font-display font-black text-[clamp(1.5rem,2.2vw,2.1rem)] leading-[1.05] text-white tracking-tight">Apple employees</span>,
+    desc: "Employees of Apple helped Aurora as individuals. This was personal support, not a partnership with Apple.",
+    perks: ["Personal support"],
   },
 ];
 
@@ -46,16 +36,16 @@ const benefits = [
   "Recruitment access to top student talent",
   "Branding across all digital & live platforms",
   "Product demos & workshop opportunities",
-  "Direct interaction with 15,000+ builders",
+  "Direct access to the next cohort",
 ];
 
 const sponsorsList1 = [
-  "PROJECTGRID", "IIIT DELHI", "FEATHERLESS.AI", "DEVFOLIO", "POLYGON",
-  "PROJECTGRID", "IIIT DELHI", "FEATHERLESS.AI", "DEVFOLIO", "POLYGON",
+  "1,500 BUILDERS", "27+ COUNTRIES", "TOP 20", "ONE CHAMPION", "AURORA 2026",
+  "1,500 BUILDERS", "27+ COUNTRIES", "TOP 20", "ONE CHAMPION", "AURORA 2026",
 ];
 const sponsorsList2 = [
-  "VERCEL", "SUPABASE", "AWS", "GITHUB", "NOTION",
-  "VERCEL", "SUPABASE", "AWS", "GITHUB", "NOTION",
+  "INDIA", "NIGERIA", "CANADA", "GERMANY", "SINGAPORE", "GHANA", "UKRAINE", "AUSTRALIA",
+  "INDIA", "NIGERIA", "CANADA", "GERMANY", "SINGAPORE", "GHANA", "UKRAINE", "AUSTRALIA",
 ];
 
 export function Sponsors() {
@@ -87,46 +77,50 @@ export function Sponsors() {
 
   return (
     <section
+      id="partners"
       ref={containerRef}
       className="relative w-full py-2xl flex flex-col bg-bg overflow-hidden"
     >
       {/* Header */}
       <div className="px-xl mb-xl">
-        <div className="font-body text-sm font-medium text-muted mb-sm">Sponsors & Partners</div>
+        <div className="font-body text-sm font-medium text-muted mb-sm">Support</div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-md">
           <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-none tracking-tight">
-            Backed by the best.
+            Who made it possible.
           </h2>
           <p className="font-body text-gray-400 font-light text-base max-w-[40ch] md:text-right leading-relaxed">
-            Aurora is powered by partners providing real tools, mentors, and capital.
+            Aurora was organised by students, with prize laptops from HP and personal help from people at Apple.
           </p>
         </div>
       </div>
 
       {/* Confirmed sponsors */}
-      <div className="sponsor-cards px-xl mb-2xl max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-sm">
-        {confirmed.map((s, i) => (
-          <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="sponsor-card glass rounded-2xl p-xl border border-white/5 bg-white/[0.01] backdrop-blur-xl flex flex-col gap-lg relative overflow-hidden shadow-xl group hover:border-white/40 transition-all duration-500 will-change-transform h-full">
+      <div className="sponsor-cards px-xl mb-2xl max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-sm">
+        {confirmed.map((s, i) => {
+          const Card = s.href ? "a" : "div";
+          return (
+          <Card key={i} {...(s.href ? { href: s.href, target: "_blank", rel: "noopener noreferrer" } : {})} className="sponsor-card glass rounded-2xl p-xl border border-white/5 bg-white/[0.01] backdrop-blur-xl flex flex-col gap-lg relative overflow-hidden shadow-xl group hover:border-white/40 transition-all duration-500 will-change-transform h-full">
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-            
+
             <div className="flex flex-col gap-lg relative z-10">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
-                <div className="shrink-0 mb-2 sm:mb-0 transform group-hover:scale-105 transition-transform duration-500">
+              <div className="flex flex-col items-start gap-4">
+                <div className="caption-text text-white/40 text-[0.6rem] tracking-[0.3em] uppercase font-black">{s.label}</div>
+                <div className="shrink-0 transform group-hover:scale-105 transition-transform duration-500 origin-left">
                   {s.logo}
                 </div>
-                <div className="caption-text text-white/40 text-[0.6rem] tracking-[0.3em] uppercase font-black">OFFICIAL PARTNER</div>
               </div>
-              
-              <div className="flex-1 text-center sm:text-left">
+
+              <div className="flex-1">
                 <p className="font-body text-gray-400 font-light text-sm leading-relaxed mb-6 block min-h-[3rem] tracking-tight">{s.desc}</p>
-                <div className="flex items-center justify-center sm:justify-start gap-2 caption-text text-white font-black group-hover:tracking-widest transition-all duration-500 text-[0.7rem] tracking-[0.2em]">
-                  VISIT WEBSITE <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </div>
+                {s.href && (
+                  <div className="flex items-center gap-2 caption-text text-white font-black group-hover:tracking-widest transition-all duration-500 text-[0.7rem] tracking-[0.2em]">
+                    {s.linkText} <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                )}
               </div>
             </div>
 
             <div className="mt-auto pt-6 border-t border-white/5 relative z-10">
-              <div className="caption-text text-white/40 text-[0.6rem] tracking-[0.2em] mb-4 font-black uppercase">PERKS</div>
               <div className="flex flex-wrap gap-2">
                 {s.perks.map((p, j) => (
                   <span key={j} className="text-[0.65rem] text-gray-400 font-black tracking-[0.1em] glass px-4 py-2 rounded-lg border border-white/5 bg-white/[0.02] group-hover:text-white group-hover:border-white/20 transition-all duration-300 uppercase">
@@ -135,8 +129,9 @@ export function Sponsors() {
                 ))}
               </div>
             </div>
-          </a>
-        ))}
+          </Card>
+          );
+        })}
       </div>
 
 
@@ -173,9 +168,9 @@ export function Sponsors() {
 
       {/* Sponsorship tiers CTA */}
       <div className="px-xl">
-        <div className="caption-text text-white/40 mb-lg font-black tracking-[0.4em] text-[10px] uppercase">BECOME A SPONSOR</div>
+        <div className="caption-text text-white/40 mb-lg font-black tracking-[0.4em] text-[10px] uppercase">PARTNER ON THE NEXT AURORA</div>
         <p className="font-body text-gray-300 font-light text-2xl max-w-[50ch] mb-xl leading-relaxed tracking-tight border-l-2 border-white/10 pl-8">
-          Put your brand in front of 15,000+ students and builders from 80+ countries. Sponsoring Aurora means access to the sharpest emerging technical talent in Asia — before anyone else finds them.
+          Aurora 2026 reached 1,500 reported participants from 27+ countries. If you want a prize track, mentors or your brand in front of the next cohort, talk to projectGRID.
         </p>
 
         <div className="benefits-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-sm mb-xl">
@@ -188,9 +183,9 @@ export function Sponsors() {
           ))}
         </div>
 
-        <button className="sponsor-deck-btn rounded-xl bg-white text-[#080810] font-body text-base font-black px-2xl py-md tracking-widest transition-all duration-500 hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] uppercase">
-          GET THE SPONSOR DECK
-        </button>
+        <a href="mailto:info@projectgrid.org?subject=Partnering%20on%20Aurora" className="inline-block sponsor-deck-btn rounded-xl bg-white text-[#080810] font-body text-base font-black px-2xl py-md tracking-widest transition-all duration-500 hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] uppercase">
+          GET IN TOUCH
+        </a>
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `

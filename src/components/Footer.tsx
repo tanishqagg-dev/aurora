@@ -6,10 +6,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { FloatingParticles } from "./FloatingParticles";
 import VariableProximity from "./VariableProximity";
 import GradualBlur from "./GradualBlur";
+import { CONTACT, DEVPOST, GRID_AURORA } from "@/data/recap";
 
 export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
-  const btnRef = useRef<HTMLButtonElement>(null);
+  const btnRef = useRef<HTMLAnchorElement>(null);
   // VariableProximity needs a ref to the container for mouse tracking
   const proximityContainerRef = useRef<HTMLDivElement>(null);
 
@@ -92,7 +93,7 @@ export function Footer() {
           className="footer-fade mb-md text-center"
         >
           <VariableProximity
-            label="Register before April 17, 2026"
+            label="Aurora 2026 is complete."
             className="font-display font-black tracking-tight text-white uppercase italic"
             style={{
               fontFamily: '"Inter", system-ui, sans-serif',
@@ -109,31 +110,31 @@ export function Footer() {
         </div>
 
         <p className="footer-fade font-body font-light text-gray-400 text-xl mb-xl text-center tracking-tight">
-          Submissions for Stage 1 are open now.
+          Thank you to every builder, judge and mentor. The next edition will be announced on projectgrid.org.
         </p>
 
         <div className="footer-fade flex gap-md mb-2xl">
-          <button
+          <a
             ref={btnRef}
-            className="px-xl sm:px-2xl py-md rounded-pill bg-[#3B82F6] text-white font-display text-base sm:text-lg font-black italic uppercase tracking-wider transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_50px_rgba(59,130,246,0.3)] hover:scale-105 w-full sm:w-auto"
+            href={DEVPOST}
+            target="_blank"
+            rel="noreferrer"
+            className="px-xl sm:px-2xl py-md rounded-pill bg-[#3B82F6] text-[#ffffff] font-display text-base sm:text-lg font-black italic uppercase tracking-wider transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_50px_rgba(59,130,246,0.3)] hover:scale-105 w-full sm:w-auto"
             style={{ willChange: "transform" }}
           >
-            REGISTER ON DEVPOST
-          </button>
+            VIEW PROJECTS ON DEVPOST
+          </a>
         </div>
       </div>
 
       <div className="footer-fade w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] border-t border-white/5 pt-md flex flex-col md:flex-row justify-between items-start z-10 mb-sm gap-lg md:gap-0">
         <div className="flex flex-col gap-md">
           <div className="font-display font-black text-xl text-white italic uppercase tracking-tight">AURORA 2026</div>
-          <div className="caption-text text-white/40 font-black tracking-[0.2em] text-[10px] uppercase">BY PROJECTGRID × IIIT DELHI</div>
+          <div className="caption-text text-white/40 font-black tracking-[0.2em] text-[10px] uppercase">ORGANISED BY PROJECTGRID</div>
           <div className="flex gap-sm sm:gap-lg flex-wrap">
-            <a href="mailto:taniaagg9910922265@gmail.com" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">taniaagg9910922265@gmail.com</a>
-            <a href="#" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">DEVPOST</a>
-            <a href="#" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">DISCORD</a>
-            <a href="#" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">INSTAGRAM</a>
-            <a href="#" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">TWITTER / X</a>
-            <a href="#" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">LINKEDIN</a>
+            <a href={`mailto:${CONTACT}`} className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">{CONTACT}</a>
+            <a href={DEVPOST} target="_blank" rel="noreferrer" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">DEVPOST</a>
+            <a href={GRID_AURORA} target="_blank" rel="noreferrer" className="caption-text text-white/40 hover:text-white transition-colors font-black text-[10px] uppercase tracking-widest">PROJECTGRID.ORG</a>
           </div>
         </div>
         <div className="flex flex-col items-end gap-lg">

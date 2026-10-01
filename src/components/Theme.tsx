@@ -54,6 +54,7 @@ export function Theme() {
 
   return (
     <section
+      id="theme"
       ref={containerRef}
       className="relative w-full py-4xl bg-bg overflow-hidden"
     >
@@ -68,11 +69,11 @@ export function Theme() {
       <div className="relative z-10 px-xl mb-xl text-center">
         <div className="theme-heading">
           <h2 className="font-display font-bold text-[clamp(2.5rem,6vw,5.5rem)] text-white leading-none tracking-tighter mb-lg">
-            Build for global impact.<br />
+            Built for global impact.<br />
             <span className="text-accent">The UN Sustainable Goals.</span>
           </h2>
           <p className="font-body text-gray-400 font-light text-lg max-w-[65ch] mx-auto leading-relaxed">
-            Pick any of the 17 UN Sustainable Development Goals. Whether it's climate action, clean energy, or quality education — your project can help shape a better world.
+            The brief was open: pick any of the 17 UN Sustainable Development Goals and build for it. The overall winner, ChillGui, built for accessibility: everyday apps that older people can actually use.
           </p>
         </div>
       </div>
@@ -113,14 +114,14 @@ export function Theme() {
       </div>
 
       <div className="relative z-10 mt-xl flex flex-col items-center">
-        <button className="group relative px-xl py-lg bg-white/0 border border-white/20 rounded-full font-display font-medium text-white transition-all duration-500 hover:bg-white hover:text-black hover:border-white">
+        <a href="https://sdgs.un.org/goals" target="_blank" rel="noreferrer" className="group relative px-xl py-lg bg-white/0 border border-white/20 rounded-full font-display font-medium text-white transition-all duration-500 hover:bg-white hover:text-black hover:border-white">
           <span className="relative z-10 flex items-center gap-sm">
-            Explore the Full SDG Brief
+            Read the 17 goals
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14m-7-7l7 7-7 7" />
             </svg>
           </span>
-        </button>
+        </a>
       </div>
     </section>
   );

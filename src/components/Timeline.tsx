@@ -20,57 +20,46 @@ import {
 const stages = [
   {
     num: "01",
-    name: "Idea Submission",
-    id: "idea-submission",
-    dates: "Deadline: 17 Apr 2026",
-    badge: "Open Now",
-    desc: "A business-focused round. Answer 10 questions about your idea via Google Form — no code required, just a clear problem and a compelling solution.",
-    expect: ["10-question Google Form", "Clear problem statement", "Team profile"],
-    out: "All teams → 200 shortlisted",
+    name: "Idea Round",
+    id: "idea-round",
+    dates: "Stage 1 · Completed",
+    badge: "Done",
+    desc: "A business-focused round. Teams entered with an idea for a real problem. No code needed yet, just a clear problem, a solution and a team.",
+    expect: ["Problem statement", "Proposed solution", "Team profile"],
+    out: "Strongest ideas shortlisted",
     icon: <ClipboardCheck className="w-10 h-10" />,
   },
   {
     num: "02",
-    name: "Prototyping Phase",
-    id: "prototyping",
-    dates: "Deadline: 4 May 2026",
-    badge: "Remote",
-    desc: "Take your shortlisted idea and build it. Submit your GitHub repo and a 2-minute explainer video showing your working MVP.",
-    expect: ["GitHub repository", "2-min explainer video", "Updated pitch deck"],
-    out: "200 teams → 20 finalists",
+    name: "Prototype",
+    id: "prototype",
+    dates: "Stage 2 · Completed",
+    badge: "Done",
+    desc: "Shortlisted teams turned the idea into something that works and submitted it on Devpost, where 266 participants are listed.",
+    expect: ["Working prototype", "Code repository", "Explainer video"],
+    out: "Projects live on Devpost",
     icon: <Code2 className="w-10 h-10" />,
   },
   {
     num: "03",
-    name: "Shark Tank Live Pitch",
-    id: "pitch",
-    dates: "18 May 2026",
-    badge: "Live",
-    desc: "The top 20 teams pitch live in a Shark Tank-style session to our panel of judges. 8 minutes to pitch, 7 minutes Q&A. No safety net.",
-    expect: ["Live demo of working product", "8-min pitch + 7-min Q&A", "Virtual pitch session"],
-    out: "20 finalists compete",
+    name: "Live Pitch",
+    id: "live-pitch",
+    dates: "Stage 3 · Completed",
+    badge: "Done",
+    desc: "Teams presented their prototypes live to the judges, online. Every project was scored on innovation, feasibility, design, execution and impact.",
+    expect: ["Live product demo", "Pitch and Q&A with the judges", "Scores across five criteria"],
+    out: "Winners chosen",
     icon: <MessageCircle className="w-10 h-10" />,
   },
   {
     num: "04",
-    name: "Prize Ceremony",
-    id: "prizes",
-    dates: "TBD · May 2026",
-    badge: "Awards",
-    desc: "Winners are announced across all four tracks at a dedicated virtual ceremony. Prizes, sponsor deals, and incubation offers.",
-    expect: ["Track winners announced", "Sponsor partnerships offered", "Incubation fast-track invites"],
-    out: "Winners Crowned",
-    icon: <Award className="w-10 h-10" />,
-  },
-  {
-    num: "05",
-    name: "Closing Ceremony",
-    id: "closing",
-    dates: "21 May 2026 · Online",
-    badge: "Virtual",
-    desc: "The official close of Aurora 2026. Online networking for all finalists, judges, sponsors, and the wider projectGRID community.",
-    expect: ["Networking with judges and VCs", "Virtual demo floor", "Community after-party"],
-    out: "Open to all finalists",
+    name: "Incubation",
+    id: "incubation",
+    dates: "Stage 4 · Completed",
+    badge: "Done",
+    desc: "The Top 20 moved on to incubation with projectGRID. Each builder received a certificate of appreciation signed by the co-founders.",
+    expect: ["Top 20 certificates", "Incubation with projectGRID", "HP laptops for the winners"],
+    out: "Top 20 into incubation",
     icon: <Trophy className="w-10 h-10" />,
   },
 ];
@@ -118,30 +107,30 @@ export function Timeline() {
       {/* ── Section header ── */}
       <div className="bg-bg text-text px-xl pt-3xl pb-xl border-b border-white/5">
         <div className="tl-hero-content">
-          <div className="font-body text-sm font-medium text-white/40 mb-sm">Timeline</div>
+          <div className="font-body text-sm font-medium text-white/40 mb-sm">How it ran</div>
           <h2 className="font-display font-bold text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-none tracking-tighter mb-md">
-            Five stages. Six weeks.<br />
+            Four stages. Fully online.<br />
             <span className="text-white/50 timeline-gradient-span">One champion.</span>
           </h2>
           <p className="font-body text-gray-400 font-light text-lg max-w-[50ch] leading-relaxed">
-            Each round eliminates teams. Only the most resilient and innovative builders
-            will reach the global live stage.
+            From a first idea to a live pitch to incubation. Aurora was built so students with
+            limited resources and slow internet could still take part.
           </p>
           <div className="flex flex-wrap items-center gap-md sm:gap-lg mt-xl py-lg border-t border-white/10">
-            <div className="flex flex-col">
-              <span className="text-white font-black text-2xl tracking-tighter">20,000+</span>
-              <span className="font-body text-xs text-white/40 font-medium mt-1">Initial ideas</span>
-            </div>
-            <div className="w-[1px] h-12 bg-white/10" />
-            <div className="flex flex-col">
-              <span className="text-white font-black text-2xl tracking-tighter">200</span>
-              <span className="font-body text-xs text-white/40 font-medium mt-1">Shortlisted</span>
-            </div>
-            <div className="w-[1px] h-12 bg-white/10" />
-            <div className="flex flex-col">
-              <span className="text-white font-black text-2xl tracking-tighter">20</span>
-              <span className="font-body text-xs text-white/40 font-medium mt-1">Finalists</span>
-            </div>
+            {[
+              ["1,500", "Participants"],
+              ["27+", "Countries"],
+              ["266", "On Devpost"],
+              ["20", "Into incubation"],
+            ].map(([value, label], i) => (
+              <div key={label} className="flex items-center gap-md sm:gap-lg">
+                {i > 0 && <div className="w-[1px] h-12 bg-white/10" />}
+                <div className="flex flex-col">
+                  <span className="text-white font-black text-2xl tracking-tighter">{value}</span>
+                  <span className="font-body text-xs text-white/40 font-medium mt-1">{label}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -233,7 +222,7 @@ export function Timeline() {
               {/* ──────────── RIGHT COLUMN ──────────── */}
               <div className="lg:col-span-8 lg:pl-2xl pt-xl lg:pt-0 flex flex-col gap-md">
                 <div className="font-body text-sm font-medium text-white/35 mb-md uppercase tracking-widest">
-                  What to Submit
+                  What it took
                 </div>
 
                 {/* Submit items — full-width editorial cards */}
@@ -275,10 +264,10 @@ export function Timeline() {
                       <div className="absolute inset-0 bg-white blur-2xl opacity-0 group-hover:opacity-10 rounded-xl transition-opacity" />
                     </div>
                     <div>
-                      <div className="text-white font-display font-black text-xl tracking-tight">Virtual Portal Access</div>
+                      <div className="text-white font-display font-black text-xl tracking-tight">Fully online</div>
                       <div className="flex items-center gap-2 mt-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                        <span className="font-body text-xs text-white/40">Live stream + async replay available</span>
+                        <span className="font-body text-xs text-white/40">Built for slow internet and limited resources</span>
                       </div>
                     </div>
                   </div>

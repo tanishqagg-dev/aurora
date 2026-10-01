@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Aurora from "./Aurora";
 import GradualBlur from "./GradualBlur";
+import { DEVPOST } from "@/data/recap";
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -287,7 +288,7 @@ export function Hero() {
           ref={eyebrowRef}
           className="font-body text-white/50 mb-lg text-sm font-medium tracking-widest"
         >
-          Organized by projectGRID · Student Initiative
+          Organized by projectGRID · Completed 2026
         </div>
 
         {/* Title stack */}
@@ -332,12 +333,12 @@ export function Hero() {
           className="flex flex-col items-center gap-sm mt-xl"
         >
           <p className="font-body text-gray-300 text-base sm:text-xl md:text-2xl text-center max-w-[42ch] font-light leading-snug tracking-tight">
-            A global multi-stage hackathon. Concept, prototype, and pitch your way to glory.
+            A global multi-stage hackathon. 1,500 builders from 27+ countries. One champion.
           </p>
           <div className="flex items-center gap-3 mt-4">
             <span className="w-8 h-[1px] bg-white/10" />
             <p className="font-body text-xs text-white/40 text-center tracking-wide">
-              Stage 1 closes <span className="text-blue-400 font-semibold">17 April 2026</span>
+              Aurora 2026 has concluded · <span className="text-blue-400 font-semibold">Results are in</span>
             </p>
             <span className="w-8 h-[1px] bg-white/10" />
           </div>
@@ -345,16 +346,16 @@ export function Hero() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-md mt-sm will-change-transform" ref={ctaRef}>
-          <button className="hero-cta-primary px-xl py-md rounded-pill bg-white shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:scale-[1.03] text-black font-body text-sm font-bold tracking-wide transition-all duration-300 relative overflow-hidden group">
+          <a href="#winners" className="hero-cta-primary px-xl py-md rounded-pill bg-white shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:scale-[1.03] text-black font-body text-sm font-bold tracking-wide transition-all duration-300 relative overflow-hidden group">
             <span className="relative z-10 flex items-center gap-1">
-              Register on Devpost
+              See the winners
             </span>
             <div className="absolute inset-0 bg-black/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          </button>
+          </a>
 
-          <button className="hero-cta-secondary px-xl py-md rounded-pill border border-white/20 hover:border-white/50 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-body text-sm font-medium transition-all duration-300">
-            View Schedule
-          </button>
+          <a href={DEVPOST} target="_blank" rel="noreferrer" className="hero-cta-secondary px-xl py-md rounded-pill border border-white/20 hover:border-white/50 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-body text-sm font-medium transition-all duration-300">
+            View projects on Devpost
+          </a>
         </div>
       </div>
 

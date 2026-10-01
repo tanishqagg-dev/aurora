@@ -6,8 +6,15 @@ import { Shockwave } from "@/components/Shockwave";
 import { ScrollProgress } from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
-  title: "AURORA | Global Hackathon 2026",
-  description: "5 Stages. Global reach. One Mission. A hackathon by projectGRID.",
+  metadataBase: new URL("https://aurora.projectgrid.org"),
+  title: "AURORA | Global Hackathon 2026 · Results",
+  description:
+    "Aurora 2026, projectGRID's online global hackathon, is complete. 1,500 participants and 27+ countries reported, the Top 20 into incubation, and the winners.",
+  openGraph: {
+    title: "AURORA | Global Hackathon 2026 · Results",
+    description: "1,500 builders. 27+ countries. One champion. See who won Aurora 2026.",
+    images: ["/images/grid-campaign-11-aurora-winners.jpg"],
+  },
 };
 
 export default function RootLayout({
